@@ -13,8 +13,19 @@ var Queue = function() {
   };
 
   someInstance.dequeue = function() {
-   
+    var keyz = Object.keys(storage);
+    var del = storage[keyz[0]];
+    delete storage[keyz[0]];
     
+    
+
+    for (var i = 0; i < someInstance.size(); i++) {
+      storage[i] = storage[i + 1];  
+    }
+    
+    delete storage[someInstance.size() - 1];
+
+    return del;
   };
 
   someInstance.size = function() {
@@ -28,10 +39,6 @@ var Queue = function() {
 
   return someInstance;
 };
-
-
-
-
 
 
 
