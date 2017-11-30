@@ -11,17 +11,26 @@ var Stack = function() {
 var stackMethods = {
 
   pop: function() {
-    this.count++;
+    let index = this.count;
+    let res = this[index - 1];
+    delete this[index - 1];
+    if (this.count > 0) {
+      this.count--;
+    }
+    
+    return res;
   },
 
   push: function(value) {
+    this[this.count] = value;
+    this.count++;
+    return this;  
   },
 
-  size: function() {
-    
+  size: function() {  
     return this.count;
   }
-
+  
 };
 
 
