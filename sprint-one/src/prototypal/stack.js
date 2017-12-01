@@ -11,20 +11,19 @@ var Stack = function() {
 var stackMethods = {
   push: function(value) {
     var index = this.count;
-    this[this[index]] = value;
+    this[index] = value;
     this.count++;
     return this;
   },
 
   pop: function() {
     var index = this.count;
-    var del = this[this.index];
-    console.log(del);
-    delete this[this.index];
+    var del = this[index - 1];
+    //console.log(del);
+    delete del;
     if (this.count > 0) {
       this.count--;
     }
-    console.log(this);
     return del;
   },
 
